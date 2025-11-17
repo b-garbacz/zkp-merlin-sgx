@@ -53,7 +53,12 @@ cargo run
 ## Run compiled file
 to create release:
 ```sh
-cargo build --release --target x86_64-fortanix-unknown-sgx
+cargo build --release --target x86_64-fortanix-unknown-sgx 
+ftxsgx-elf2sgxs target/x86_64-fortanix-unknown-sgx/release/marlin-sgx-test \
+  --output target/x86_64-fortanix-unknown-sgx/release/marlin-sgx-test.sgxs \
+  --heap-size 0x8000000 \
+  --stack-size 0x400000 \
+  --threads 1
 ```
 
 then
@@ -64,10 +69,17 @@ ftxsgx-runner target/x86_64-fortanix-unknown-sgx/release/marlin-sgx-test.sgxs
 ## Run compiled file in debug mode
 
 ```sh
-cargo build --target x86_64-fortanix-unknown-sgx
+cargo build --target x86_64-fortanix-unknown-sgx 
+ftxsgx-elf2sgxs target/x86_64-fortanix-unknown-sgx/debug/marlin-sgx-test \
+  --output target/x86_64-fortanix-unknown-sgx/debug/marlin-sgx-test.sgxs \
+  --heap-size 0x8000000 \
+  --stack-size 0x400000 \
+  --threads 1
 ```
 
 then
 ```
 ftxsgx-runner target/x86_64-fortanix-unknown-sgx/debug/marlin-sgx-test.sgxs
 ```
+# Result
+<img width="856" height="276" alt="image" src="https://github.com/user-attachments/assets/8e5f99df-6e53-4766-9e5c-ff8063c31d04" />
