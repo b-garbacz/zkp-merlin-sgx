@@ -1,0 +1,27 @@
+[package]
+name = "marlin-sgx-test"
+version = "0.1.0"
+edition = "2021"
+# 
+[dependencies]
+ark-serialize = { version = "0.3", default-features = false, features = ["std"] }
+ark-marlin      = { version = "0.3", default-features = false, features = ["std"] }
+ark-relations   = { version = "0.3", default-features = false, features = ["std"] }
+ark-ff          = { version = "0.3", default-features = false, features = ["std"] }
+ark-ec          = { version = "0.3", default-features = false, features = ["std"] }
+ark-bls12-381   = { version = "0.3", default-features = false, features = ["std", "curve", "scalar_field"] }
+ark-poly        = { version = "0.3", default-features = false, features = ["std"] }
+ark-poly-commit = { version = "0.3", default-features = false, features = ["std"] }
+ark-std         = { version = "0.3", default-features = false, features = ["std"] }
+blake2          = "0.9"
+rand            = { version = "0.8", default-features = false, features = ["std"] }
+rand_chacha     = "0.3"
+rdrand          = "0.8"
+
+
+[package.metadata.fortanix-sgx]
+stack-size   = 0x400000
+heap-size    = 0x8000000
+threads      = 1
+ssaframesize = 1
+debug= true
